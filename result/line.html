@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>有料LINE案内</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+      background: #f9fafa;
+      color: #333;
+    }
+
+    .paid-line-section {
+      max-width: 640px;
+      margin: 40px auto;
+      padding: 40px 20px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      background-image: linear-gradient(0deg, transparent 24%, #f3f7fa 25%, transparent 26%, transparent 74%, #f3f7fa 75%, transparent 76%);
+      background-size: 100% 60px;
+    }
+
+    .service-heading-wrapper {
+      position: relative;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .service-heading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 64px;
+      color: #deeff0;
+      pointer-events: none;
+      white-space: nowrap;
+      line-height: 1;
+    }
+
+    .service-subheading {
+      position: relative;
+      font-size: 20px;
+      color: #505a5f;
+      letter-spacing: 0.45em;
+      line-height: 1.5;
+      display: inline-block;
+      padding: 0 10px;
+      margin-top: 60px;
+    }
+
+    .paid-line-section h2 {
+      font-size: 24px;
+      color: #6dbdc6;
+      text-align: center;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .paid-line-section .subtitle {
+      text-align: center;
+      color: #7b9aa5;
+      font-size: 14px;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+    }
+    .paid-line-section p {
+      font-size: 16px;
+      line-height: 2;
+      margin: 20px 0;
+    }
+    .highlight {
+      background: linear-gradient(transparent 60%, #dff3f5 60%);
+      display: inline;
+    }
+    .line-button {
+      display: inline-block;
+      background: #06c755;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 30px;
+      transition: background 0.3s;
+    }
+    .line-button:hover {
+      background: #04a94a;
+    }
+    .underline {
+      width: 60px;
+      height: 2px;
+      background: #4ab1c1;
+      margin: 20px auto;
+    }
+.contents-section {
+  background: #fff;
+  padding: 40px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  margin-top: 40px;
+}
+
+.contents-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+  gap: 20px; /* 文字と線の間の余白 */
+}
+
+.contents-title::before,
+.contents-title::after {
+  content: "";
+  flex-grow: 1;
+  height: 1px;
+  background-color: #6dbdc6;
+}
+
+.contents-title span {
+  font-size: 24px;
+  color: #6dbdc6;
+  letter-spacing: 0.3em;
+  white-space: nowrap;
+}
+.contents-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contents-list li {
+  font-size: 16px;
+  color: #333;
+  line-height: 2;
+  position: relative;
+  margin-bottom: 20px;
+  padding-right: 130px;
+}
+
+.diamond {
+  width: 10px;
+  height: 10px;
+  background: #6dbdc6;
+  transform: rotate(45deg);
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 2px;
+}
+
+.zoom-tag {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #6dbdc6;
+  color: #fff;
+  font-size: 14px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+</style>
+</head>
+<body>
+  <section class="paid-line-section">
+    <div class="service-heading-wrapper">
+        <div class="service-heading">Service</div>
+        <div class="service-subheading">サービス内容</div>
+    </div>
+    <h2>あなただけの占いをお届け</h2>
+    <div class="subtitle">ベルちゃん うらない</div>
+    <div class="underline"></div>
+    <p>
+      belluneの有料プランでは、
+      <span class="highlight">あなただけの占い結果</span>を
+      より詳しくお届けします。
+    </p>
+    <p>
+      人間関係・恋愛・仕事・金運など、
+      あなたの未来を知りたい方へ
+      <span class="highlight">特別なメッセージ</span>をお送りします。
+    </p>
+    <p style="text-align: center;">
+      <a href="#" class="line-button">LINEで有料占いを始める</a>
+    </p>
+  <!-- <div class="contents-section"> -->
+<div class="contents-title">
+  <span>CONTENTS</span>
+</div>
+    <ul class="contents-list">
+      <li>
+        <span class="diamond"></span>
+        感謝日記とは、書き方、point、アロマの使い方、サポート体制説明
+        <span class="zoom-tag">zoom 60 min</span>
+      </li>
+      <li>
+        <span class="diamond"></span>
+        1週間双方で決めた時間帯にて感謝日記ワーク実施
+        <span class="zoom-tag">zoom 30 min</span>
+      </li>
+      <li>
+        <span class="diamond"></span>
+        7日目以降フィードバック、継続するポイント、サポート
+        <span class="zoom-tag">zoom 60 min</span>
+      </li>
+    </ul>
+  <!-- </div> -->
+  </section>
+</body>
+</html>

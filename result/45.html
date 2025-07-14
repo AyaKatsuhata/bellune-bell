@@ -2,11 +2,380 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>天星占い結果 - 45</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <title>ベルちゃん占い結果</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+      background: #ffffff;
+      color: #333;
+    }
+
+    /* Header */
+    .header {
+      background: #B6D3FF;
+      padding: 12px;
+      text-align: left;
+    }
+
+    .header h1 {
+      font-family: 'Lobster', cursive;
+      font-size: 30px;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    /* Main占い結果 */
+    .main {
+      max-width: 640px;
+      margin: 20px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .result-type {
+      font-size: 22px;
+      color: #d77f4b;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .image-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .image-container img {
+      max-width: 200px;
+      border-radius: 50%;
+    }
+
+    .description {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .section-heading {
+      display: inline-block;
+      background-color: #f48da4;
+      color: #ffffff;
+      font-weight: bold;
+      padding: 8px 20px;
+      border-radius: 4px;
+      font-size: 18px;
+    }
+
+    /* LINE広告セクション */
+    .service-heading-wrapper {
+      position: relative;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .service-heading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 64px;
+      color: #deeff0;
+      pointer-events: none;
+      white-space: nowrap;
+      line-height: 1;
+    }
+
+    .service-subheading {
+      position: relative;
+      font-size: 20px;
+      color: #505a5f;
+      letter-spacing: 0.45em;
+      line-height: 1.5;
+      display: inline-block;
+      padding: 0 10px;
+      margin-top: 60px;
+    }
+
+    .line-title {
+      font-size: 24px;
+      color: #6dbdc6;
+      text-align: center;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      font-family: 'Lobster', cursive;
+    }
+
+    .line-subtitle {
+      text-align: center;
+      color: #7b9aa5;
+      font-size: 14px;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+    }
+
+    .line-description p {
+      font-size: 16px;
+      line-height: 2;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .highlight {
+      background: linear-gradient(transparent 60%, #dff3f5 60%);
+      display: inline;
+    }
+
+    .underline {
+      width: 60px;
+      height: 2px;
+      background: #4ab1c1;
+      margin: 20px auto;
+    }
+
+    /* Contents list */
+    .contents-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 40px 0;
+      gap: 20px;
+    }
+
+    .contents-title::before,
+    .contents-title::after {
+      content: "";
+      flex-grow: 1;
+      height: 1px;
+      background-color: #6dbdc6;
+    }
+
+    .contents-title span {
+      font-size: 24px;
+      color: #6dbdc6;
+      letter-spacing: 0.3em;
+      white-space: nowrap;
+    }
+
+    .contents-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .contents-list li {
+      font-size: 16px;
+      color: #333;
+      line-height: 2;
+      position: relative;
+      margin-bottom: 20px;
+      padding-right: 130px;
+    }
+
+    .diamond {
+      width: 10px;
+      height: 10px;
+      background: #6dbdc6;
+      transform: rotate(45deg);
+      display: inline-block;
+      margin-right: 10px;
+      margin-bottom: 2px;
+    }
+
+    .zoom-tag {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #6dbdc6;
+      color: #fff;
+      font-size: 14px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    /* LINE　白抜き */
+    .line-white {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .line-white a {
+      display: inline-block;
+      background: #ffffff;
+      color: #06c755;
+      border: 2px solid #06c755;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+    .line-white a:hover {
+      background: #f0f0f0;
+      color: #06c755;
+    }
+
+    .line-button {
+      display: inline-block;
+      background: #06c755;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 30px;
+      transition: background 0.3s;
+    }
+
+    .line-button:hover {
+      background: #04a94a;
+    }
+
+    /* Balloon */
+    .balloon-container {
+      max-width: 640px;
+      margin: 40px auto;
+      text-align: center;
+    }
+
+    .balloon {
+      display: inline-block;
+      position: relative;
+      background: #ffffff;
+      color: #065f43;
+      font-weight: bold;
+      font-size: 20px;
+      padding: 20px 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .balloon::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 20px 20px 0;
+      border-style: solid;
+      border-color: #ffffff transparent transparent transparent;
+    }
+
+    .balloon-body {
+      background: #d6f2e2;
+      color: #065f43;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .balloon-body a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      background: #06c755;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .balloon-body a:hover {
+      background: #04a94a;
+    }
+  </style>
 </head>
 <body>
-  <h1>あなたの天星数は 45 です！</h1>
-  <p>ここに占い結果を表示します。</p>
-  <a href="https://line.me/R/ti/p/xxxxxxxx">有料占いはこちら</a>
+  <div class="header">
+    <h1>bellune</h1>
+  </div>
+
+  <div class="main">
+    <h2 class="result-type">あなたは…「満月」タイプ</h2>
+    <div class="image-container">
+      <img src="https://dummyimage.com/200x200/ddd/fff&text=満月" alt="天星タイプ画像">
+    </div>
+    <h3 class="section-heading">全体運</h3>
+    <div class="description">
+      <p>あなたは「満月」タイプ。<br>
+      落ち着きがあり、人との調和を大切にする性格です。</p>
+      <p>周囲からの信頼も厚く、持ち前のバランス感覚でトラブルを上手に解決します。</p>
+      <p>2025年は新たな挑戦があなたを待っています。チャンスを活かして飛躍の年にしましょう！</p>
+    </div>
+    <div class="line-white">
+      <a href="https://liff.line.me/XXXXXXXXX">LINEで詳しく占う</a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="service-heading-wrapper">
+      <div class="service-heading">Service</div>
+      <div class="service-subheading">サービス内容</div>
+    </div>
+    <h2 class="line-title">あなただけの占いをお届け</h2>
+    <div class="line-subtitle">ベルちゃん うらない</div>
+    <div class="underline"></div>
+    <div class="line-description">
+      <p>
+        belluneの有料プランでは、
+        <span class="highlight">あなただけの占い結果</span>を
+        より詳しくお届けします。
+      </p>
+      <p>
+        人間関係・恋愛・仕事・金運など、
+        あなたの未来を知りたい方へ
+        <span class="highlight">特別なメッセージ</span>をお送りします。
+      </p>
+      <p style="text-align: center;">
+        <a href="#" class="line-button">LINEで有料占いを始める</a>
+      </p>
+    </div>
+
+    <div class="contents-title">
+      <span>CONTENTS</span>
+    </div>
+    <ul class="contents-list">
+      <li>
+        <span class="diamond"></span>
+        感謝日記とは、書き方、point、アロマの使い方、サポート体制説明
+        <span class="zoom-tag">zoom 60 min</span>
+      </li>
+      <li>
+        <span class="diamond"></span>
+        1週間双方で決めた時間帯にて感謝日記ワーク実施
+        <span class="zoom-tag">zoom 30 min</span>
+      </li>
+      <li>
+        <span class="diamond"></span>
+        7日目以降フィードバック、継続するポイント、サポート
+        <span class="zoom-tag">zoom 60 min</span>
+      </li>
+    </ul>
+
+    <div class="balloon-container">
+      <div class="balloon">
+        もっと詳しく占いたい方へ
+      </div>
+      <div class="balloon-body">
+        belluneの有料プランでは、<br>
+        あなた専用の運勢や月ごとの運気を<br>
+        より深くお届けします。<br><br>
+        人間関係・恋愛・仕事・金運…<br>
+        未来を知りたいあなたへ<br>
+        特別なヒントをお送りします。
+        <br>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
