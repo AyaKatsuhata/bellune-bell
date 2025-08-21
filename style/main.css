@@ -23,14 +23,13 @@
       z-index:999;
       background:#B6D3FF;
       box-shadow:0 2px 8px rgba(0,0,0,.05);
-      height: 48px;
     }
     .logo{
       font-family: 'Lobster', cursive;
       font-weight: 700;
       font-size: 1.4rem;
       letter-spacing: .1em;
-      font-size: 30px;
+      font-size: 28px;
       color: #ffffff;
       margin: 0;
     }
