@@ -130,8 +130,11 @@
 
     @media (max-width: 767px) {
       .banner-header .en {
-        font-size: 40px;
+        font-size: 36px;
         letter-spacing: 0;
+      }
+      .banner-header .ja {
+        font-size: 16px;
       }
     }
 
@@ -190,6 +193,16 @@
       .banner-items li {
         width: 100%;
       }
+
+      .banner-items img {
+        width: 300px;
+        height: 250px;
+      }
+
+      .banner-items p {
+        font-size: 18px;
+      }
+
     }
 
     .grid-box {
@@ -252,6 +265,18 @@
       font-weight: 400;
       margin-top: 20px;
       margin-bottom: 40px;
+    }
+    @media (max-width: 767px) {
+      .step-text {
+        font-size: 15px;
+      }
+
+      .grid-description p {
+        font-size: 15px;
+        font-weight: 400;
+        margin-top: 20px;
+        margin-bottom: 40px;
+      }
     }
 
     .grid-description ul {
