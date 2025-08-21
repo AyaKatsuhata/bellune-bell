@@ -6,6 +6,7 @@
   // UIノード
   const type = document.getElementById('type');
   const img = document.getElementById('img');
+  const features     = document.getElementById('features');
   const overallLuck  = document.getElementById('overallLuck');
   const loveLuck     = document.getElementById('loveLuck');
   const careerLuck   = document.getElementById('careerLuck');
@@ -36,6 +37,7 @@
 
     type.textContent = entry.title;
     img.src = entry.img;
+    features.innerHTML = entry.features.map(line => escapeHtml(line)).join('<br>');
     overallLuck.innerHTML = entry.overallLuck.map(line => escapeHtml(line)).join('<br>');
     loveLuck.innerHTML = entry.loveLuck.map(line => escapeHtml(line)).join('<br>');
     careerLuck.innerHTML = entry.careerLuck.map(line => escapeHtml(line)).join('<br>');
