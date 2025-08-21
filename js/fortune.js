@@ -188,7 +188,7 @@
   
     // クエリで結果ページへ（必要なら他の値も付与OK）
     // const url = `${RESULT_URL}?g=${encodeURIComponent(groupKey)}&n=${encodeURIComponent(tenshoNumber)}&y=${year}&m=${month}&d=${day}`;
-    const url = `/Users/ayahm1/work_space/bellune-bell/result.html?g=${encodeURIComponent(groupKey)}&n=${encodeURIComponent(tenshoNumber)}&y=${year}&m=${month}&d=${day}`;
+    const url = `/result.html?g=${encodeURIComponent(groupKey)}&n=${encodeURIComponent(tenshoNumber)}&y=${year}&m=${month}&d=${day}`;
     if (typeof onRedirect === 'function') onRedirect(url, { tenshoNumber, groupKey });
     else window.location.href = url;
   
