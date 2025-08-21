@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>クラTモック | Graffitees Student</title>
+
+  <!-- Google Fonts（見出し用）-->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /*  --- ベース --- */
+    :root{
+      --primary:#00bcd4;
+      --primary-dark:#0097a7;
+      --accent:#ff6f91;
+      --bg-grey:#f7f9fb;
+      --txt:#333;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:"Zen Kaku Gothic New",sans-serif;color:var(--txt);line-height:1.8;background:#fff;}
+  /* html,body{
+    height:100%;
+    margin:0;
+  }
+  body{
+    font-family:"Noto Sans JP",sans-serif;
+    padding:40px;
+    background:url("../images/23588127.png") center/cover no-repeat fixed;
+  } */
+    h1,h2,h3,h4{font-family:Montserrat, sans-serif;margin:0 0 .4em;color:#111;}
+    a{color:inherit;text-decoration:none;}
+    img{max-width:100%;height:auto;display:block;}
+
+    /*  --- 共通レイアウト --- */
+    .wrapper{max-width:1200px;margin:auto;padding:0 4%;}
+
+    /*  --- ヘッダー --- */
+    header{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0;}
+    .logo{font-family:Montserrat,sans-serif;font-weight:700;font-size:1.4rem;letter-spacing:.05em;}
+    .menu{display:flex;gap:1.5rem;font-size:.9rem;}
+    .cta--nav{background:var(--primary);color:#fff;padding:.5rem 1.4rem;border-radius:999px;font-weight:bold;transition:.3s;}
+    .cta--nav:hover{background:var(--primary-dark);}
+
+    /*  --- ヒーロー --- */
+    .hero{background:linear-gradient(165deg,#e0f7fa 0%,#ffffff 60%);padding:5rem 0 6rem;text-align:center;}
+    .hero h1{font-size:clamp(1.8rem,4.8vw,3.4rem);}
+    .hero p{font-size:1.1rem;margin:1.2rem auto 2rem;max-width:640px;}
+    .cta--main{display:inline-block;background:var(--accent);color:#fff;font-weight:bold;padding:1rem 2.4rem;border-radius:60px;font-size:1.1rem;transition:.3s;}
+    .cta--main:hover{opacity:.85;}
+
+    /*  --- 特長３カラム --- */
+    .features{background:var(--bg-grey);padding:4rem 0;}
+    .features-grid{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+    .card{background:#fff;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.06);padding:2rem;text-align:center;}
+    .card h3{font-size:1.2rem;color:var(--primary-dark);}
+    .icon{font-size:3rem;margin-bottom:.6rem;color:var(--accent);}
+
+    /*  --- STEP 流れ --- */
+    .steps{padding:4rem 0;}
+    .step-list{display:grid;gap:2.5rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));counter-reset:step;}
+    .step{padding:2rem;border-left:6px solid var(--primary);background:#fafbfd;border-radius:6px;position:relative;}
+    .step::before{counter-increment:step;content:counter(step);position:absolute;top:-1.2rem;left:-1.2rem;background:var(--primary);color:#fff;width:2.2rem;height:2.2rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;}
+
+    /*  --- お客様の声 --- */
+    .voices{background:#fff;padding:4rem 0;}
+    .voice-grid{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+    .voice{border:1px solid #e5e9ef;border-radius:8px;padding:1.6rem;background:#fcfdff;}
+    .voice cite{display:block;margin-top:1rem;font-style:normal;font-size:.85rem;color:#666;}
+
+    /*  --- 学割バナー --- */
+    .banner{background:var(--accent);color:#fff;text-align:center;padding:2.5rem 1rem;}
+    .banner h2{font-size:1.6rem;color:#fff;margin-bottom:.6rem;}
+    .cta--banner{display:inline-block;margin-top:1rem;background:#fff;color:var(--accent);font-weight:bold;padding:.8rem 2rem;border-radius:50px;}
+
+    /*  --- FAQ --- */
+    .faq{padding:4rem 0;}
+    details summary{cursor:pointer;font-weight:bold;border-bottom:1px solid #e5e9ef;padding:1rem 0;list-style:none;}
+    details[open] summary{color:var(--primary);}
+    details p{padding:0 0 1.2rem;}
+
+    /*  --- フッター --- */
+    footer{background:#263238;color:#cfd8dc;padding:3rem 0;font-size:.85rem;margin-top:4rem;}
+    footer a{color:#fff;font-weight:bold;}
+  </style>
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="wrapper nav">
+      <div class="logo">Graffitees</div>
+      <!-- <nav class="menu">
+        <a href="#features">商品一覧</a>
+        <a href="#discount">学割特典</a>
+        <a href="#flow">お届けまでの流れ</a>
+        <a href="#faq">FAQ</a>
+        <a href="#" class="cta--nav">注文する</a>
+      </nav> -->
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="wrapper">
+      <h1>めちゃ盛れクラTは<br>Graffiteesで決まり！</h1>
+      <p>写真・手書きイラストを送るだけ。<br>デザインも素材も自由自在、学割で1枚<span style="font-weight:bold;">1,000円以下</span>も可能！</p>
+      <a href="#" class="cta--main">無料で相談する</a>
+    </div>
+  </section>
+
+  <!-- ===== Features ===== -->
+  <section id="features" class="features">
+    <div class="wrapper">
+      <h2 style="text-align:center;">選ばれる理由</h2>
+      <div class="features-grid">
+        <div class="card">
+          <div class="icon">🎨</div>
+          <h3>デザイン自由</h3>
+          <p>390種類以上のテンプレ＋手描きOK。LINEで送るだけでプロが仕上げ！</p>
+        </div>
+        <div class="card">
+          <div class="icon">👕</div>
+          <h3>豊富なボディ</h3>
+          <p>Tシャツ・ロンT・スウェット・ベースボール…47色 × 11サイズから選択可。</p>
+        </div>
+        <div class="card">
+          <div class="icon">💰</div>
+          <h3>学割＆大量割</h3>
+          <p>早割・リピート割など各種割引併用でコスパ最強。1枚あたりの単価を大幅ダウン！</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Flow ===== -->
+  <section id="flow" class="steps">
+    <div class="wrapper">
+      <h2 style="text-align:center;">注文の流れ</h2>
+      <div class="step-list">
+        <div class="step">
+          <h3>商品＆サイズを選択</h3>
+          <p>豊富なラインナップからお好みをチョイス。</p>
+        </div>
+        <div class="step">
+          <h3>デザイン入稿 or テンプレ選択</h3>
+          <p>写真や手描きをアップするか、テンプレをアレンジ。</p>
+        </div>
+        <div class="step">
+          <h3>お見積り → 入金</h3>
+          <p>学割自動適用。追加カスタムもこのタイミングで決定。</p>
+        </div>
+        <div class="step">
+          <h3>最短 7 日でお届け</h3>
+          <p>全国送料無料。箱を開けた瞬間、クラスみんなで感動！</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Voices ===== -->
+  <section class="voices">
+    <div class="wrapper">
+      <h2 style="text-align:center;">先輩たちの声</h2>
+      <div class="voice-grid">
+        <div class="voice">
+          <p>「想像以上にかわいくて体育祭ぶっちぎりで目立ちました！」</p>
+          <cite>高2・A組</cite>
+        </div>
+        <div class="voice">
+          <p>「写真をLINEで送っただけで神デザインに仕上げてもらえた！」</p>
+          <cite>高3・バスケ部</cite>
+        </div>
+        <div class="voice">
+          <p>「割引をフル活用して1,000円以下で作れたのが嬉しい」</p>
+          <cite>中3・文化祭実行委員</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Discount Banner ===== -->
+  <section id="discount" class="banner">
+    <h2>賢く学割を使ってもっとお得！</h2>
+    <p>今なら早割＋LINE相談で追加 5% OFF</p>
+    <a href="#" class="cta--banner">学割を詳しく見る</a>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq" class="faq wrapper">
+    <h2 style="text-align:center;">よくある質問</h2>
+
+    <details>
+      <summary>最小注文枚数は？</summary>
+      <p>1 枚からご注文いただけますが、10 枚以上で学割が適用されます。</p>
+    </details>
+    <details>
+      <summary>納期はどのくらい？</summary>
+      <p>デザイン確定後、通常 7～10 営業日で発送します。</p>
+    </details>
+    <details>
+      <summary>支払い方法は？</summary>
+      <p>クレカ、銀行振込、コンビニ払い、PayPay がご利用可能です。</p>
+    </details>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="wrapper" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem;">
+      <div>
+        <strong>© 2025 Graffitees Inc.</strong><br>
+        All rights reserved.
+      </div>
+      <nav style="display:flex;gap:1.5rem;">
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">利用規約</a>
+        <a href="#">お問い合わせ</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小テストジェネレーター</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+    header {
+      background-color: #1976d2;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav {
+      background-color: #eeeeee;
+      padding: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #1976d2;
+      font-weight: bold;
+    }
+    .container {
+      display: flex;
+    }
+    .sidebar {
+      width: 200px;
+      background-color: #ffffff;
+      padding: 1rem;
+      border-right: 1px solid #ccc;
+    }
+    .main {
+      flex: 1;
+      padding: 2rem;
+      background-color: #ffffff;
+    }
+    .card {
+      background-color: #e3f2fd;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #eeeeee;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong>小テストジェネレーター</strong></div>
+    <div>
+      <a href="#">ログイン</a> / <a href="#">無料登録</a>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#">リストエディタ</a>
+    <a href="#">単元から選ぶ</a>
+    <a href="#">クイズモード</a>
+    <a href="#">AI添削</a>
+    <a href="#">成績管理</a>
+    <a href="#">教材シェア</a>
+  </nav>
+
+  <div class="container">
+    <aside class="sidebar">
+      <p><strong>クイックリンク</strong></p>
+      <ul>
+        <li><a href="#">小テスト印刷</a></li>
+        <li><a href="#">記録票エディタ</a></li>
+        <li><a href="#">カリキュラム作成</a></li>
+      </ul>
+    </aside>
+
+    <main class="main">
+      <div class="card">
+        <h2>クイズモード</h2>
+        <p>4択・8択・入力式の問題形式で、生徒の学習をサポート。</p>
+      </div>
+
+      <div class="card">
+        <h2>AI添削</h2>
+        <p>英作文のAI添削機能を使って、生徒の英語力を強化。</p>
+      </div>
+
+      <div class="card">
+        <h2>小テスト印刷</h2>
+        <p>選んだ問題をすぐにPDFで印刷。解答付きも対応。</p>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2025 小テストジェネレーター | <a href="#">お問い合わせ</a>
+  </footer>
+</body>
+</html>

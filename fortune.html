@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style/main.css">
+  <link rel="stylesheet" href="./style/fortune.css">
+  <title>ベルちゃん占い結果</title>
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <div data-include="./components/header.html"></div>
+    <div class="wrapper" style="margin-top: 50px;">
+    <div class="banner-header">
+      <h2><span class="en">What’s Your Fortune?</span><span class="jp">無料でうらなう</span></h2>
+    </div>
+    <div class="grid-form">
+      <div class="birthdate-form">
+        <label class="form-label">生年月日
+          <span class="required-badge">必須</span>
+        </label>
+        <div class="birthdate-grid">
+          <div class="input-group">
+            <select class="birth-select" id="year"></select> 年
+          </div>
+          <div class="input-group">
+            <select class="birth-select" id="month"></select> 月
+          </div>
+          <div class="input-group">
+            <select class="birth-select" id="day"></select> 日
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="submit-btn" id="submitBtn">無料で占う</button>
+    <p id="formError" class="form-error" aria-live="polite" style="margin-top:8px;color:#d33;font-weight:700;"></p>
+  </div>
+<script>
+  const yearSelect = document.getElementById("year");
+  const monthSelect = document.getElementById("month");
+  const daySelect = document.getElementById("day");
+
+  // 年：1951〜今年
+  const currentYear = new Date().getFullYear();
+  for (let y = currentYear; y >= 1951; y--) {
+    yearSelect.innerHTML += `<option value="${y}">${y}</option>`;
+  }
+
+  // 月：1〜12
+  for (let m = 1; m <= 12; m++) {
+    monthSelect.innerHTML += `<option value="${m}">${m}</option>`;
+  }
+
+  // 日：1〜31
+  for (let d = 1; d <= 31; d++) {
+    daySelect.innerHTML += `<option value="${d}">${d}</option>`;
+  }
+</script>
+<script src="./js/fortune.js" defer></script>
+<script>
+  document.getElementById('submitBtn').addEventListener('click', function () {
+    const year  = parseInt(document.getElementById('year').value, 10);
+    const month = parseInt(document.getElementById('month').value, 10);
+    const day   = parseInt(document.getElementById('day').value, 10);
+
+    const errEl = document.getElementById('formError');
+
+    startFortuneFlow({
+      year, month, day,
+      onError(msg) {
+        errEl.textContent = msg;
+      },
+      onRedirect(url, ctx) {
+        // ここで計測やログ出しも可能（ctxにはtenshoNumber, groupKey, label）
+        window.location.href = url;
+      }
+    });
+  });
+</script>
+<!-- <script>
+    document.getElementById("submitBtn").addEventListener("click", () => {
+      const year = parseInt(document.getElementById("year").value);
+      const month = parseInt(document.getElementById("month").value);
+      const day = parseInt(document.getElementById("day").value);
+
+      const tensho = calcTenseiNumber(year, month, day);
+      window.location.href = `/result/${tensho}.html`;
+    });
+
+    function calcTenseiNumber(year, month, day) {
+      // 天星表を使った計算ロジックをここに
+      // 仮に45を返す
+      return 45;
+    }
+  </script> -->
+  <!-- 読み込みスクリプト -->
+  <script src="./js/include.js"></script>
+  <script>includeHTML();</script>
+</body>
+</html>
