@@ -1,7 +1,6 @@
 (function (global) {
   'use strict';
 
-  // ==== 天星表オブジェクト（年→各月の基数） ====
   const tenshoTable = {
     "2023": [55, 26, 54, 25, 55, 26, 56, 27, 58, 28, 59, 29],
     "2022": [50, 21, 49, 20, 50, 21, 51, 22, 53, 23, 54, 24],
@@ -78,7 +77,6 @@
     "1951": [37, 8, 36, 7, 37, 8, 38, 9, 40, 10, 41, 11]
   };
 
-  // ==== 天星タイプマッピング ====
   const groupMapping = {
     fullMoon: [4, 10, 33, 39, 45],
     firstQuarter: [11, 17, 32, 38],
@@ -94,24 +92,6 @@
     midnight: [13, 19, 24, 25, 30, 35]
   };
 
-  // ==== 遷移先URL（Notionなどの結果ページ） ====
-  // const groupURLs = {
-  //   fullMoon: "https://notion.so/001",
-  //   firstQuarter: "https://notion.so/002",
-  //   lastQuarter: "https://notion.so/003",
-  //   newMoon: "https://notion.so/004",
-  //   sky: "https://notion.so/005",
-  //   mountain: "https://notion.so/006",
-  //   continent: "https://notion.so/007",
-  //   ocean: "https://notion.so/008",
-  //   sunrise: "https://notion.so/009",
-  //   midday: "https://notion.so/010",
-  //   sunset: "https://notion.so/011",
-  //   midnight: "https://notion.so/012",
-  //   unknown: ""
-  // };
-
-  // ==== 日本語ラベル（表示用に必要なら） ====
   const groupLabels = {
     fullMoon: "満月",
     firstQuarter: "上弦の月",
@@ -124,8 +104,7 @@
     sunrise: "朝日",
     midday: "真昼",
     sunset: "夕焼け",
-    midnight: "深夜",
-    unknown: "該当なし"
+    midnight: "深夜"
   };
 
   // ===== ユーティリティ =====
